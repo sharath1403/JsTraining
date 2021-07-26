@@ -27,6 +27,7 @@ function getWinner(competations, result) {
     for (const key of Object.keys(counts)) {
         counts[key] = counts[key] * 3;
     }
-    console.log(counts);
-    document.getElementById("sln").innerHTML = JSON.stringify(counts);
+    var winner = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+    document.getElementById("list").innerHTML = JSON.stringify(counts);
+    document.getElementById("sln").innerHTML = winner;
 }
